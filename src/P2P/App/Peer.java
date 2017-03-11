@@ -33,10 +33,13 @@ public class Peer {
 		commander.publishSharedFilesToTracker();
 		
 		// Begin accepting commands from user using shell 
-		do {
-			commander.readCommandFromShell();
-			commander.processCurrentCommand();
-		} while (commander.shouldQuit() == false);
+		commander.readCommandFromShell();
+		commander.processCurrentCommand();
+		
+		
+		//do {
+			
+		//} while (commander.shouldQuit() == false);
 		
 		// Shutdown this peer's server threads by closing the server socket
 		client.end();

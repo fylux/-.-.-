@@ -76,11 +76,11 @@ public class PeerController implements PeerControllerIface {
 		case PeerCommands.COM_QUERY: {
 			Message m = createMessageFromCurrentCommand();
 			System.out.println("Va bien");
-			//processMessageFromTracker(reporter.conversationWithTracker(m));
+			processMessageFromTracker(reporter.conversationWithTracker(m));
 			break;
 		}
-		default:
-			;
+		default: System.out.println("default CurrentCommand");
+			
 		}
 	}
 
@@ -98,7 +98,7 @@ public class PeerController implements PeerControllerIface {
 			break;
 		}
 		case PeerCommands.COM_QUERY: {
-			m = Message.makeQueryFilesRequest((byte)0, "");
+			m = Message.makeQueryFilesRequest((byte)1, "");
 			break;
 		}
 		default: m = null;
@@ -119,7 +119,7 @@ public class PeerController implements PeerControllerIface {
 			break;
 		}
 		default:
-			System.out.println(response.getOpCodeString());
+			System.out.println("default"+response.getOpCodeString());
 		}
 
 	}
