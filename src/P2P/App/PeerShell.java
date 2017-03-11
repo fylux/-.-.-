@@ -10,8 +10,10 @@ public class PeerShell implements PeerShellIface {
 	@Override
 	public byte getCommand() {
 		// TODO Auto-generated method stub
-		if (line == "QUERY_FILES")
+		if (line.equals("query"))
 			return PeerCommands.COM_QUERY;
+		else if (line.equals("quit"))
+			return PeerCommands.COM_QUIT;
 		else
 			return 0;
 	}
@@ -25,9 +27,9 @@ public class PeerShell implements PeerShellIface {
 	@Override
 	public void readCommand() {
 		// TODO Auto-generated method stub
-		/*Scanner in = new Scanner(System.in);
-		line = in.nextLine();
-		in.close();*/
+		Scanner in = new Scanner(System.in);
+		line = in.next();
+		in.close();
 	}
 
 }
